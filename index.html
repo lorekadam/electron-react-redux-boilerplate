@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Artwork matcher</title>
+  <link rel="stylesheet" href="./dist/assets/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="./dist/assets/css/vendor/ionicons.min.css">
+  <script>
+    (function () {
+      if (!process.env.NODE_ENV === 'development') {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = './dist/assets/css/styles.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
+    }());
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    if (process.env.NODE_ENV === 'development') {
+      document.write(('<script defer src="http://localhost:8082/renderer.js"><\/script>'));
+    } else if (process.env.NODE_ENV === 'production') {
+      document.write(('<script src="./dist/renderer.js"><\/script>'));
+    }
+  </script>
+</body>
+
+</html>
